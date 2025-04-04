@@ -128,23 +128,24 @@ python3 ../configure --target-isa=avr
 ```bash
 scons build/AVR/gem5.opt -j$(nproc)
 ```
+# AVR Implementation Progress
 
-## Current Status
-- ✅ Basic architecture structure implemented
-- ✅ Builds successfully
-- ✅ Integration with gem5 build system
-- ❌ No instruction execution capability
-- ❌ No register file implementation
-- ❌ No decoder support
+## Completed
+- ✅ Basic directory structure
+- ✅ Initial ISA setup
+- ✅ Build system integration
+- ✅ Basic simulation script
 
-## Next Steps
-1. Implement register file
-2. Add instruction formats and decoder
-3. Implement basic instructions
-4. Set up memory interface
-5. Add system call support
-6. Implement CPU models
-7. Create testing infrastructure
+## In Progress
+- ⏳ Register file implementation
+- ⏳ Instruction decoder
+
+## Pending
+- ❌ Instruction definitions
+- ❌ Memory interface
+- ❌ System calls
+- ❌ CPU models
+- ❌ Testing framework
 
 ## Notes
 - This implementation provides only the skeleton for AVR support
