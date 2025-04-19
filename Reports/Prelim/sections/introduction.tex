@@ -1,0 +1,9 @@
+In current state, different ISAs are available for systems, some favoured over others. Nonetheless,
+three major ISAs are \texttt{ARM}, \texttt{RISCV} and \texttt{x86}. Each of them were designed in different
+time period for different needs. Despite their differences these architectures are slowly being used in 
+comparable machines with most computers still powered with Intel/AMDs \texttt{x86} and Macs \texttt{ARM}.
+\texttt{RISCV} is gaining space as Linux based OS's like FreeBSD extending to support it. In this study we
+aim to compare these ISAs on a common benchmark. We'll mostly focus on execution speed with and without 
+caches. We'll be using the \texttt{gem5} simulation system for the same. \texttt{gem5} provides a 
+huge suite of tools to test the CPU performance. Although we won't be getting into the \texttt{C++} core
+of \texttt{gem5}, but we'll be using the \texttt{Python} api of \texttt{gem5} with the existing modules. 

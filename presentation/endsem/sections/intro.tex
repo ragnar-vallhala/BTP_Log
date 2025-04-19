@@ -1,0 +1,71 @@
+\begin{frame}{What is GEM5?}
+  \begin{itemize}
+    \item \textbf{GEM5} is a modular platform for computer-system architecture research.
+    \item It merges features from \textbf{M5} (full system simulator) and the original \textbf{GEM5} (CPU modeling framework).
+    \item Supports simulation of a wide range of ISAs: \textbf{x86, ARM, RISC-V, SPARC, MIPS}, and more.
+    \item Enables both \textbf{system-level} and \textbf{cycle-accurate} CPU simulation.
+    \item Widely used for:
+      \begin{itemize}
+        \item Academic and industrial architecture research
+        \item Performance analysis and profiling
+        \item Design-space exploration
+      \end{itemize}
+    \item \textbf{Open-source} and highly extensible — ideal for custom architecture extensions.
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{What is GEM5?}
+  \begin{itemize}
+    \item \textbf{GEM5} is structured into multiple components that interact modularly:
+    \begin{itemize}
+      \item \textbf{CPU Models}: TimingSimple, Minor, O3, and atomic models.
+      \item \textbf{Memory System}: Includes caches, memory controllers, and interconnects.
+      \item \textbf{Devices}: Peripheral models like UART, timers, and disk controllers.
+      \item \textbf{ISAs}: Support for multiple instruction sets like ARM, RISC-V, x86, etc.
+      \item \textbf{Full System vs. Syscall Emulation Modes}
+    \end{itemize}
+    \item Designed to be \textbf{modular and extensible}, allowing researchers to plug in new components.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{What is GEM5?}
+  \begin{itemize}
+    \item \textbf{Hybrid C++ and Python Design}:
+    \begin{itemize}
+      \item Core simulation engine written in C++ for performance.
+      \item Configuration and modeling interfaces written in Python for flexibility.
+    \end{itemize}
+
+    \item \textbf{User Interaction}:
+    \begin{itemize}
+      \item Users write Python scripts to define system architecture, CPUs, memory, peripherals.
+      \item These scripts internally call C++ classes and methods via Python bindings.
+    \end{itemize}
+
+    \item \textbf{Simulation Flow}:
+    \begin{itemize}
+      \item Python config → System Instantiation → Simulation via C++ backend.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{What is GEM5?}
+  \centering
+    \begin{tikzpicture}[
+    node distance=0.8cm and 1.5cm,
+    every node/.style={font=\footnotesize},
+    box/.style={rectangle, draw, minimum width=2.5cm, minimum height=0.8cm, align=center},
+    arrow/.style={-{Latex}, thick}
+  ]
+    \node[box, fill=blue!20] (user) {User Python Script\\(system.py)};
+    \node[box, fill=orange!30, below=of user] (pycfg) {Python Configuration\\Layer};
+    \node[box, fill=green!30, below=of pycfg] (cppcore) {C++ Simulation Core\\(CPU, Mem, Devices)};
+    \node[box, fill=gray!30, below=of cppcore] (output) {Simulation Output};
+
+    \draw[arrow] (user) -- (pycfg) node[midway, right] {Defines system};
+    \draw[arrow] (pycfg) -- (cppcore) node[midway, right] {Calls C++ classes};
+    \draw[arrow] (cppcore) -- (output) node[midway, right] {Runs simulation};
+  \end{tikzpicture}\\
+  \textbf{Figure 1: }Simulation flow in GEM5
+\end{frame}

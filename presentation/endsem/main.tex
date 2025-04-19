@@ -1,0 +1,81 @@
+\documentclass[10pt, aspectratio=169]{beamer}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{orange},
+  showstringspaces=false,
+  breaklines=true,
+  backgroundcolor=\color{black!5},
+  captionpos=b
+}
+
+\usetikzlibrary{arrows.meta, positioning, shapes.geometric}
+
+
+\usetheme{CambridgeUS}
+\usecolortheme{dolphin}
+\usefonttheme{serif}
+\usepackage{fontawesome5}
+
+
+\title[GEM5 Extensions]{\textbf{GEM5 Extensions}: Broadening Support to Microcontrollers with GUI}
+\author{Ashutosh Vishwakarma}
+\institute{IIT Jammu}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.10\textwidth]{images/iitjammu.png}
+    \hspace{1.5cm}
+    \includegraphics[width=0.08\textwidth]{images/gem5.png}
+    \titlepage
+    \centering
+    Guide: Dr.Subhasis Bhattacharjee
+  \end{figure}
+\end{frame}
+
+
+\begin{frame}{Overview}
+  \tableofcontents
+\end{frame}
+
+\section{Introduction}
+\input{sections/intro.tex}
+
+\section{Objectives}
+\input{sections/objectives.tex}
+
+\section{Approach}
+\input{sections/approach.tex}
+
+\section{Implementation}
+\input{sections/implementation.tex}
+
+\section{Future Work}
+\input{sections/futurework.tex}
+
+\section{Conclusion}
+  \input{sections/conclusion.tex}
+
+\section{References}
+\input{sections/references.tex}
+
+\section{Suplementary Material}
+\input{sections/supplementary.tex}
+
+\section{}
+\begin{frame}{Thank You}
+  \centering
+  Questions?
+\end{frame}
+
+\end{document}

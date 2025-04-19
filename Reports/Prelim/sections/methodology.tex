@@ -1,0 +1,153 @@
+In this study, we choose the \textbf{Sieve of Eratosthenes} as the benchmark
+algorithm to test on. The Sieve of Eratosthenes is an efficient
+algorithm to find all prime numbers up to a given number $n$. 
+It works by iteratively marking the multiples of each prime number,
+starting from 2, as non-prime. This algorithm is highly efficient
+for generating a list of primes and has a time complexity of $O(nloglogn)$.
+
+\subsection{Compilation}
+The C code used for the \textbf{Sieve of Eratosthenes} is given below:
+\begin{verbatim}
+    #include <stdio.h>
+    #include <stdbool.h>
+    #include <stdlib.h>  
+    void sieveOfEratosthenes(int n) {
+        bool primes[n + 1];    
+        for (int i = 0; i <= n; i++) {
+            primes[i] = true;
+        }
+        primes[0] = primes[1] = false; 
+        for (int p = 2; p * p <= n; p++) {
+            if (primes[p] == true) {
+                for (int i = p * p; i <= n; i += p) {
+                    primes[i] = false;
+                }
+            }
+        }
+        printf("Prime numbers up to %d are:\n", n);
+        for (int i = 2; i <= n; i++) {
+            if (primes[i]) {
+                printf("%d ", i);
+            }
+        }
+        printf("\n");
+    }
+    int main() {
+        sieveOfEratosthenes(NUM);
+        return 0;
+    }
+\end{verbatim}
+The C code for \textbf{Sieve of Eratosthenes} has a macro \texttt{NUM}, not defined in the code itself.
+Rather it will be defined at compile-time by passing compiler args. The same code is compiled to binary for 
+\texttt{x86}, \texttt{ARM} and \texttt{RISCV}. We are simulating the execution in \texttt{se} mode of 
+\textbf{gem5}, meaning we are not providing complete OS, rather utilizing the host OS for system calls.
+This creates a challenge for dynamically linked binaries, as the simulation is running on a \texttt{x86} machine
+unable to link for binaries of other architectures. Thus, we compiled the binaries in static linking mode,
+with \texttt{-static} argument. All the binaries are in \texttt{64 bit LE}, format as \textbf{gem5} currently
+only loads binaries that are in little-endian format. The compilers used for the compilation are:
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+Arch   & Compiler  \\ \hline
+x86    & gcc                    \\ 
+ARM    & aarch64-linux-gnu-gcc  \\ 
+RISCV  & riscv-linux-gnu-gcc    \\ \hline
+\end{tabular}
+\caption{Compilers Used}
+\end{table}
+The compilation command for different binaries are:\\
+\texttt{<compiler> -static -DNUM=<size-of-sieve> -o <output-binary> <input-file.c>}\\
+
+
+\subsection{gem5 System Architecture Design}
+The \textbf{gem5} simulation has a modular design. It closely resembles a real system. The main part on which
+simulation run is a \texttt{board}. There are multiple types of boards in \textbf{gem5}. A \texttt{board} 
+holds different components of a system namely clock, processor and memory. The binary resource is also loaded
+to this board. The Python api for \textbf{gem5} has following definition of a board:
+\begin{verbatim}
+    board = SimpleBoard(
+        clk_freq="1GHz",
+        processor=processor,
+        memory=memory,
+        cache_hierarchy=cache_hierarchy,
+    )
+\end{verbatim}
+These four components make up the board. The clock frequency in the simulation was set to \texttt{1GHz}.
+The processor used is derived from \texttt{SimpleProcessor} class from the \textbf{gem5}'s Python api.
+The \texttt{SimpleProcessor} is defined as:
+\begin{verbatim}
+    processor = SimpleProcessor(
+        cpu_type=CPUTypes.TIMING,
+        num_cores=1,
+        isa=isa
+    )
+\end{verbatim}
+Here, \texttt{CPUTypes.TIMING} is used for better accuracy in time and cycle simulation during execution.
+The number of cores is set to 1 for all the instances. Finally, the \texttt{isa} is varied as per the requirement.\\
+The main memory used in the simulation is a \texttt{SingleChannelDDR3\_1600} with a size of \texttt{1GiB}.
+\begin{verbatim}
+    memory = SingleChannelDDR3_1600("1GiB")
+\end{verbatim}
+This is kept constant throughout the simulation.\\
+Finally, the \texttt{cache\_hierarchy} in the simulation is altered across different values. Some system configurations
+had no Cache at all and other has a two level(L1, L2) cache hierarchy. Also the sizes of the caches are varied.\\
+The summary of different parameters is given below.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|c|c|c|}
+    \hline
+    Parameters          & Values                            & Description\\ \hline
+    Architecture        & ARM, RISCV, x86                   & used ISA type  \\ 
+    Cache Availability  & Yes, No                           & availability of cache memory \\
+    L1DSize             & 32, 64, 128 kB                    & size of L1 data cache \\
+    L1ISize             & 32, 64, 128 kB                    & size of L1 instruction cache\\
+    L2Size              & 128, 256, 512, 1024, 2048 kB      & size of L2 cache \\ 
+    Sieve Size          & 1e1,1e2,1e3,1e4,1e5  &  size of Sieve of Eratosthenes\\ \hline
+    \end{tabular}
+    \caption{Parameters of Simulation}
+\end{table}
+
+\subsection{Target Parameters}
+In this simulation we aim to collect information related to execution performance and delay in various ISAs
+and configurations. There are 12 total parameters that we aim to collect from the output results. A brief 
+description of the same is given below.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|}
+    \hline
+    Parameters                                                       & Description\\ \hline
+    \texttt{simSeconds}                                              & simulation time in seconds  \\ 
+    \texttt{simTicks}                                                & simulated ticks \\
+    \texttt{simInsts}                                                & number of instructions simulated \\
+    \texttt{simOps}                                                  & number of operations simulated\\
+    \texttt{core.cpi}                                                & cycles per instruction \\ 
+    \texttt{core.ipc}                                                & instructions per cycle\\
+    \texttt{l1d-cache-0.demandHits::total}                           & total hits to L1D cache  \\ 
+    \texttt{l1d-cache-0.demandMisses::total}                         & total misses to L1D cache \\
+    \texttt{l1i-cache-0.demandHits::total}                           & total hits to L1I cache \\
+    \texttt{l1i-cache-0.demandMisses::total}                         & total misses to L1I cache\\
+    \texttt{l2-cache-0.demandHits::total}                            & total hits to L2 cache \\ 
+    \texttt{l2-cache-0.demandMisses::total}                          & total misses to L2 cache\\ \hline
+    \end{tabular}
+    \\
+    \textit{Note: simOps counts all operations including micro-ops}
+    \caption{Target parameters to be monitored}
+\end{table}
+In further analysis, using the exact counts of hits and misses to caches can produce misleading interpretations.
+So, we will use $miss\_ratio$ instead.
+\[
+miss\_ratio = \frac{total\_miss}{total\_miss+total\_hit}
+\]
+One more thing to keep in mind is that, 
+\[
+cpi = \frac{1}{ipc}
+\]
+In this simulation, a master python script iterates over the parameters given in Table 2 and runs runs the
+simulation script by passing the arguments. Each simulation result file is then renamed and moved to separate
+directory. Considering the number of parameters from Table 2, there are a total of 18 simulations with
+\texttt{No\_Cache} and 810 with different \texttt{Cache} models, amounting to a total of 828. The result files
+are then parsed to collect the target parameters mentioned in Table 3 in  a CSV file.
