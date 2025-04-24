@@ -1,0 +1,162 @@
+In this project, we proceeded in two phases. First, we explored Gem5's capabilities and developed a deeper understanding of the simulator's internal workings. To do this, we studied the impact of different instruction set architectures (ISAs) on execution speed and cache miss rates under a given workload. We used the Gem5 simulator to run a set of benchmarks and collected data on execution time and cache performance. This data was then analyzed to evaluate how different ISAs influence performance. The insights gained helped us identify the strengths and limitations of each ISA in various scenarios.
+
+In the second phase, we worked on extending Gem5 to support the AVR architecture. We began by familiarizing ourselves with the existing codebase and identifying the components that required modification. We then implemented support for basic AVR instructions such as \texttt{add} and \texttt{sub}.
+
+\subsection{Testing the gem5 simulator}
+For the testing we used the algorithm of multiplying two matrices in row major format. The algorithm was written in C and compiled for different architectures.
+
+\subsubsection{Compilation} The used code was:
+\begin{lstlisting}[language=C, caption={Row major matrix multiplication algorithm}, label={lst:matrix_mult}]
+// Multiplication of two matrices
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int** createRandomMatrix(int n) {
+    int** matrix = malloc(n * sizeof(int*));
+    for (int i = 0; i < n; i++) {
+        matrix[i] = malloc(n * sizeof(int));
+        for (int j = 0; j < n; j++) {
+            matrix[i][j] = (rand()%2==1?-1:1)*rand() % MAX; // capping the values
+        }
+    }
+    return matrix;
+}
+
+int** createZeroMatrix(int n) {
+    int** matrix = malloc(n * sizeof(int*));
+    for (int i = 0; i < n; i++) {
+        matrix[i] = calloc(n, sizeof(int));
+    }
+    return matrix;
+}
+
+void printMatrix(int** matrix, int n) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            printf("%3d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+void multiplyMatrices(int** A, int** B, int** C, int n) {
+    for (int i = 0; i < n; i++) {           // Row of A
+        for (int j = 0; j < n; j++) {       // Column of B
+            for (int k = 0; k < n; k++) {   // Iterate over row-col
+                C[i][j] += A[i][k] * B[k][j];
+            }
+        }
+    }
+}
+
+void freeMatrix(int** matrix, int n) {
+    for (int i = 0; i < n; i++)
+        free(matrix[i]);
+    free(matrix);
+}
+
+int main() {
+    int n = DIM;
+    srand(time(NULL)); 
+
+    int** A = createRandomMatrix(n);
+    int** B = createRandomMatrix(n);
+    int** C = createZeroMatrix(n);
+
+    printf("Matrix A:\n");
+    printMatrix(A, n);
+
+    printf("\nMatrix B:\n");
+    printMatrix(B, n);
+
+    multiplyMatrices(A, B, C, n);
+
+    printf("\nMatrix A x B:\n");
+    printMatrix(C, n);
+
+    freeMatrix(A, n);
+    freeMatrix(B, n);
+    freeMatrix(C, n);
+
+    return 0;
+}
+
+\end{lstlisting}
+
+The used code was compiled with two constants \texttt{DIM} and \texttt{MAX}. The constant \texttt{DIM} is the size of the matrix and the constant \texttt{MAX} is the maximum absolute value of the elements in the matrix. The code was compiled with the following command:
+
+\begin{lstlisting}[language=bash , caption={Compilation Command}, label={lst:compilation}]
+    <compiler> -static -o matrix_mult matrix_mult.c -DDIM=<dimension> -DMAX=<max_value>
+\end{lstlisting}
+
+
+The code was compiled with the \texttt{-static} flag to ensure that the code is statically linked. This is important because the gem5 simulator does not support dynamic linking. The code was compiled with the \texttt{-D} flag to define the constants \texttt{DIM} and \texttt{MAX}.
+
+The code generates two random matrices of size \texttt{DIM} and multiplies them. The result is printed to the standard output. The code was compiled for the following architectures:
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\textbf{Architecture} & \textbf{Compiler}     \\
+		\hline
+		x86                   & gcc                   \\
+		ARM                   & aarch64-linux-gnu-gcc \\
+		RISCV                 & riscv-linux-gnu-gcc   \\
+		\hline
+	\end{tabular}
+	\vspace{0.2cm}
+	\caption{List of architectures and their compilers}
+\end{table}
+
+\subsubsection{Gem5 System Architecture Design} The gem5 simulation has a modular design. It closely resembles a real
+system. The main part on which simulation run is a board. There are
+multiple types of boards in gem5. A board holds different components of
+a system namely clock, processor and memory. The binary resource is also
+loaded to this board. The Python API for gem5 has the following definition of a board:
+
+\begin{lstlisting}[language=python, caption={Gem5 Processor Definition}, label={lst:gem5_processor}]
+processor = SimpleProcessor(
+    cpu_type=CPUTypes.TIMING,
+    num_cores=1,
+    isa=isa
+)
+\end{lstlisting}
+
+\begin{lstlisting}[language=python, caption={Gem5 Memory Definition}, label={lst:gem5_processor}]
+memory = SingleChannelDDR3_1600("1GiB")
+\end{lstlisting}
+
+\begin{lstlisting}[language=python, caption={Gem5 Memory Definition}, label={lst:gem5_processor}]
+cache_hierarchy = NoCache()
+\end{lstlisting}
+
+
+
+\begin{lstlisting}[language=python, caption={Gem5 Memory Definition}, label={lst:gem5_processor}]
+cache_hierarchy = PrivateL1PrivateL2CacheHierarchy(
+    l1d_size="32kB",
+    l1i_size="32kB",
+    l2_size="128kB"
+)
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=python, caption={Gem5 Board Definition}, label={lst:gem5_board}]
+board = SimpleBoard(
+    clk_freq="1GHz",
+    processor=processor,
+    memory=memory,
+    cache_hierarchy=cache_hierarchy
+)
+\end{lstlisting}
+\begin{lstlisting}[language=python, caption={Gem5 Memory Definition}, label={lst:gem5_processor}]
+binary = BinaryResource("<path_to_binary>")
+board.set_se_binary_workload(binary)
+\end{lstlisting}
+
+\begin{lstlisting}[language=python, caption={Gem5 Memory Definition}, label={lst:gem5_processor}]
+simulator = Simulator(board=board)
+simulator.run()
+\end{lstlisting}

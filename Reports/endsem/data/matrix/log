@@ -1,0 +1,579 @@
+['10', '100']
+['10', '100']
+['10', '100']
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:15
+gem5 executing on Vallhala, pid 516919
+command line: ../../../build/ALL/gem5.opt Modular.py --arch x86 --cache 0 --dim 10 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:16
+gem5 executing on Vallhala, pid 516950
+command line: ../../../build/ALL/gem5.opt Modular.py --arch x86 --cache 0 --dim 100 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:17
+gem5 executing on Vallhala, pid 517023
+command line: ../../../build/ALL/gem5.opt Modular.py --arch x86 --cache 1 --L1ISize 32 --L1DSize 32 --L2Size 128 --dim 10 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:18
+gem5 executing on Vallhala, pid 517122
+command line: ../../../build/ALL/gem5.opt Modular.py --arch x86 --cache 1 --L1ISize 32 --L1DSize 32 --L2Size 128 --dim 100 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:19
+gem5 executing on Vallhala, pid 517208
+command line: ../../../build/ALL/gem5.opt Modular.py --arch x86 --cache 1 --L1ISize 32 --L1DSize 32 --L2Size 256 --dim 10 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:20
+gem5 executing on Vallhala, pid 517242
+command line: ../../../build/ALL/gem5.opt Modular.py --arch x86 --cache 1 --L1ISize 32 --L1DSize 32 --L2Size 256 --dim 100 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:21
+gem5 executing on Vallhala, pid 517262
+command line: ../../../build/ALL/gem5.opt Modular.py --arch x86 --cache 1 --L1ISize 64 --L1DSize 32 --L2Size 128 --dim 10 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:21
+gem5 executing on Vallhala, pid 517301
+command line: ../../../build/ALL/gem5.opt Modular.py --arch x86 --cache 1 --L1ISize 64 --L1DSize 32 --L2Size 128 --dim 100 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:22
+gem5 executing on Vallhala, pid 517302
+command line: ../../../build/ALL/gem5.opt Modular.py --arch x86 --cache 1 --L1ISize 64 --L1DSize 32 --L2Size 256 --dim 10 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:22
+gem5 executing on Vallhala, pid 517329
+command line: ../../../build/ALL/gem5.opt Modular.py --arch x86 --cache 1 --L1ISize 64 --L1DSize 32 --L2Size 256 --dim 100 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:23
+gem5 executing on Vallhala, pid 517341
+command line: ../../../build/ALL/gem5.opt Modular.py --arch x86 --cache 1 --L1ISize 32 --L1DSize 64 --L2Size 128 --dim 10 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:23
+gem5 executing on Vallhala, pid 517352
+command line: ../../../build/ALL/gem5.opt Modular.py --arch x86 --cache 1 --L1ISize 32 --L1DSize 64 --L2Size 128 --dim 100 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:24
+gem5 executing on Vallhala, pid 517359
+command line: ../../../build/ALL/gem5.opt Modular.py --arch x86 --cache 1 --L1ISize 32 --L1DSize 64 --L2Size 256 --dim 10 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:24
+gem5 executing on Vallhala, pid 517382
+command line: ../../../build/ALL/gem5.opt Modular.py --arch x86 --cache 1 --L1ISize 32 --L1DSize 64 --L2Size 256 --dim 100 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:25
+gem5 executing on Vallhala, pid 517401
+command line: ../../../build/ALL/gem5.opt Modular.py --arch x86 --cache 1 --L1ISize 64 --L1DSize 64 --L2Size 128 --dim 10 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:25
+gem5 executing on Vallhala, pid 517414
+command line: ../../../build/ALL/gem5.opt Modular.py --arch x86 --cache 1 --L1ISize 64 --L1DSize 64 --L2Size 128 --dim 100 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:26
+gem5 executing on Vallhala, pid 517416
+command line: ../../../build/ALL/gem5.opt Modular.py --arch x86 --cache 1 --L1ISize 64 --L1DSize 64 --L2Size 256 --dim 10 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:26
+gem5 executing on Vallhala, pid 517441
+command line: ../../../build/ALL/gem5.opt Modular.py --arch x86 --cache 1 --L1ISize 64 --L1DSize 64 --L2Size 256 --dim 100 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:27
+gem5 executing on Vallhala, pid 517517
+command line: ../../../build/ALL/gem5.opt Modular.py --arch ARM --cache 0 --dim 10 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:27
+gem5 executing on Vallhala, pid 517585
+command line: ../../../build/ALL/gem5.opt Modular.py --arch ARM --cache 0 --dim 100 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:28
+gem5 executing on Vallhala, pid 517586
+command line: ../../../build/ALL/gem5.opt Modular.py --arch ARM --cache 1 --L1ISize 32 --L1DSize 32 --L2Size 128 --dim 10 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:28
+gem5 executing on Vallhala, pid 517608
+command line: ../../../build/ALL/gem5.opt Modular.py --arch ARM --cache 1 --L1ISize 32 --L1DSize 32 --L2Size 128 --dim 100 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:29
+gem5 executing on Vallhala, pid 517630
+command line: ../../../build/ALL/gem5.opt Modular.py --arch ARM --cache 1 --L1ISize 32 --L1DSize 32 --L2Size 256 --dim 10 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:29
+gem5 executing on Vallhala, pid 517642
+command line: ../../../build/ALL/gem5.opt Modular.py --arch ARM --cache 1 --L1ISize 32 --L1DSize 32 --L2Size 256 --dim 100 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:30
+gem5 executing on Vallhala, pid 517646
+command line: ../../../build/ALL/gem5.opt Modular.py --arch ARM --cache 1 --L1ISize 64 --L1DSize 32 --L2Size 128 --dim 10 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:30
+gem5 executing on Vallhala, pid 517668
+command line: ../../../build/ALL/gem5.opt Modular.py --arch ARM --cache 1 --L1ISize 64 --L1DSize 32 --L2Size 128 --dim 100 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:31
+gem5 executing on Vallhala, pid 517683
+command line: ../../../build/ALL/gem5.opt Modular.py --arch ARM --cache 1 --L1ISize 64 --L1DSize 32 --L2Size 256 --dim 10 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:31
+gem5 executing on Vallhala, pid 517694
+command line: ../../../build/ALL/gem5.opt Modular.py --arch ARM --cache 1 --L1ISize 64 --L1DSize 32 --L2Size 256 --dim 100 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:32
+gem5 executing on Vallhala, pid 517695
+command line: ../../../build/ALL/gem5.opt Modular.py --arch ARM --cache 1 --L1ISize 32 --L1DSize 64 --L2Size 128 --dim 10 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:32
+gem5 executing on Vallhala, pid 517716
+command line: ../../../build/ALL/gem5.opt Modular.py --arch ARM --cache 1 --L1ISize 32 --L1DSize 64 --L2Size 128 --dim 100 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:33
+gem5 executing on Vallhala, pid 517728
+command line: ../../../build/ALL/gem5.opt Modular.py --arch ARM --cache 1 --L1ISize 32 --L1DSize 64 --L2Size 256 --dim 10 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:33
+gem5 executing on Vallhala, pid 517744
+command line: ../../../build/ALL/gem5.opt Modular.py --arch ARM --cache 1 --L1ISize 32 --L1DSize 64 --L2Size 256 --dim 100 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:34
+gem5 executing on Vallhala, pid 517745
+command line: ../../../build/ALL/gem5.opt Modular.py --arch ARM --cache 1 --L1ISize 64 --L1DSize 64 --L2Size 128 --dim 10 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:34
+gem5 executing on Vallhala, pid 517766
+command line: ../../../build/ALL/gem5.opt Modular.py --arch ARM --cache 1 --L1ISize 64 --L1DSize 64 --L2Size 128 --dim 100 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:35
+gem5 executing on Vallhala, pid 517777
+command line: ../../../build/ALL/gem5.opt Modular.py --arch ARM --cache 1 --L1ISize 64 --L1DSize 64 --L2Size 256 --dim 10 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
+STDOUT: gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.1
+gem5 compiled Mar 30 2025 22:54:22
+gem5 started Apr 19 2025 21:36:35
+gem5 executing on Vallhala, pid 517782
+command line: ../../../build/ALL/gem5.opt Modular.py --arch ARM --cache 1 --L1ISize 64 --L1DSize 64 --L2Size 256 --dim 100 --max 1000
+
+
+STDERR: AttributeError: 'Namespace' object has no attribute 'prime'
+
+At:
+  Modular.py(140): <module>
+  src/python/m5/main.py(675): main
+
