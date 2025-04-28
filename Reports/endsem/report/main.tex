@@ -9,6 +9,18 @@
 \usepackage{cite}
 \usepackage[utf8]{inputenc}
 \usepackage{courier}
+\usepackage{tabularx} % For adjustable width tables
+\usepackage{booktabs} % For better table formatting
+\usepackage{array}    % For additional column formatting
+\usepackage{ragged2e} % For better text justification
+\usepackage{float} % Add to preamble
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0pt}
 
 
 % Code listing style
@@ -48,12 +60,18 @@
 \begin{document}
 
 
-\title{GEM5 Extensions: Broadening Support to Microcontrollers with GUI}
+\title{
+  \raisebox{-0.5\height}{\includegraphics[height=1.5cm]{figs/iitjammu.png}}
+  \hfill
+  \parbox{0.8\textwidth}{\centering GEM5 Extensions: Broadening Support to Microcontrollers with GUI}
+  \hfill
+  \raisebox{-0.5\height}{\includegraphics[height=1.5cm]{figs/gem5.png}}
+}
 
 \author{Ashutosh Vishwakarma (2022UCS0083)\\
 	Guide: Dr. Subhasis Bhattacharjee\\
-	Computer Science \& Engineering,
-	Indian Institute of Technology, Jammu}
+	\textit{Computer Science \& Engineering,
+	Indian Institute of Technology, Jammu}}
 
 
 \maketitle
@@ -71,13 +89,13 @@
 \input{sections/litrature.tex}
 
 \section{Methodology}
-\input{sections/methodology}
+\input{sections/methodology.tex}
 
-% \section{Results}
-% \input{sections/results}
+\section{Results}
+\input{sections/results.tex}
 
-% \section{Conclusion}
-% \input{sections/conclusion}
+\section{Conclusion}
+\input{sections/conclusion}
 
 \bibliographystyle{IEEEtran}
 \bibliography{references}

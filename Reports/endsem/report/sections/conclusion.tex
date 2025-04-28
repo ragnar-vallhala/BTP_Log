@@ -1,7 +1,5 @@
-From the study above, it can be concluded that in light of a simple algorithm of \textbf{Sieve of Eratosthenes}
-\texttt{ARM} performs best among the three in terms of speed. It can be credited to the simple yet 
-dense instructions of \texttt{ARM}. Also \texttt{RISCV} being from the same \texttt{RISC} family as \texttt{ARM}
-performs closer to \texttt{x86}. The cache memory however plays a very significant role in improving
-the execution time but it does so for all the ISAs alike. The cache miss ratio discussed is affected most
-by the size of the cache than ISA. However, different ISAs produce different cache miss ratio but the 
-difference is not significant enough to favour one over other.  
+This project aims to extend the Gem5 simulator to support the AVR architecture, addressing a critical gap in microcontroller simulation capabilities. Through a systematic approach, we first conducted a comparative performance analysis of ARM, RISC-V, and x86 architectures using matrix multiplication workloads, which revealed key insights into ISA efficiency and cache behavior. ARM demonstrated superior instruction density ($\approx$16\% fewer instructions than RISC-V), while x86 exhibited higher operational overhead due to its CISC nature. Cache performance analysis showed RISC-family ISAs achieving optimal hit rates (>99\% for L1 caches), validating their design advantages for predictable workloads.
+
+The AVR extension implemented foundational components including the ISA decoder, register file, and basic ALU operations (ADD/SUB), establishing a framework for future peripheral integration. The modular design approach ensured compatibility with Gem5's existing infrastructure while accommodating AVR's unique Harvard architecture and 8-bit RISC pipeline. Challenges such as precise timing modeling and memory-mapped I/O emulation were identified as critical areas for further development.
+
+This work significantly enhances Gem5's utility for embedded systems research by: (1) enabling cycle-accurate AVR simulation, (2) providing a base for educational microcontroller labs, and (3) facilitating comparative studies with mainstream architectures. Future directions include completing the AVR ISA implementation, integrating GUI-based debugging tools, and validating against physical hardware using Arduino benchmarks. The project demonstrates how architectural simulators can evolve to support emerging embedded computing paradigms while maintaining rigorous performance analysis capabilities.
